@@ -4,7 +4,7 @@
 3. [Unity](#unity)
 4. [Unity UI](#unity-ui)
 5. [Wwise](#wwise)
-6. [Wwise Integration] (#wwise-integration)
+6. [Wwise Integration](#wwise-integration)
 ## Git
 - One feature branch -> One Unity scene
 - Three `develop` branches :
