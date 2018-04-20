@@ -24,6 +24,7 @@
 		- `git checkout ours && git merge ours_copy -X theirs`
 	5. Add new prefabs into desired scene where applicable
 - You can use `git merge --abort` if you need to step back from a merge
+- Push a branch on remote only if necessary using `git push --set-upstream origin branch_name`
 ## Coding (C#)
 - Every class shall extend `MonoBehaviour`, no exceptions.
 - Exposing class attributes to public is totally acceptable.
@@ -60,7 +61,8 @@ public class GameManager : Monobehaviour {
 - When developing a scene element, only the **top level** GameObject should require attributes initialization from other GameObjects in the scene
 -  All the child GameObjects should be retrieved using the `GetComponentInChildren<T>()` method
 - **Parent** GameObjects use the **Children** methods, not the other way around
-- Always keep an updated prefab version of your top level scene components
+- Work on a prefab when possible
+- If you have to edit a scene component directly in a scene, always keep an updated prefab version of your top level scene components
 	1. Drag and drop the scene GameObject in the prefab folder
 	2. Delete old one
 	3. Rename new one as desired
