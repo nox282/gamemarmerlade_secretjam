@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
-
+    // Config
     public float MoveSpeed = 10.0f;
     public float TargetDistanceThreshold = 0.1f;
     public float AmmunitionSpawnPosition = 1.0f;
@@ -36,16 +36,30 @@ public class EnemyController : MonoBehaviour {
         LookTarget = target;
     }
 
+    public void Shoot() {
+        ProjectileController pc = CreateBullet();
+        if (pc != null)
+            pc.Initialize(LookTarget);
+    }
+
     public void Shoot(Vector3 target) {
-        if (Ammunition == null) return;
+        ProjectileController pc = CreateBullet();
+        if (pc != null)
+            pc.Initialize(target);
+    }
+
+    private ProjectileController CreateBullet() {
+        if (Ammunition == null) return null;
 
         GameObject projectile = Instantiate(Ammunition,
                                             transform.position + transform.forward * AmmunitionSpawnPosition,
-                                            transform.rotation, 
-                                            transform);
+                                            Quaternion.identity);
 
-        ProjectileController pc = projectile.GetComponent<ProjectileController>();
-        if (pc != null)
-            pc.Initialize(target);
+        return projectile.GetComponent<ProjectileController>();
+        
+    }
+
+    public void Hit(float damage) {
+        Debug.Log(gameObject.name + " hit for " + damage);
     }
 }

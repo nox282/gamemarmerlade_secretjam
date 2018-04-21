@@ -29,6 +29,10 @@ public class ProjectileController : MonoBehaviour {
         Direction = (target - transform.position).normalized;
     }
 
+    public void InitializeWithDirection(Vector3 target) {
+        Direction = target;
+    }
+
     private void ApplyMovement() { 
         transform.position += Direction.normalized * ProjectileSpeed * Time.deltaTime;
     }

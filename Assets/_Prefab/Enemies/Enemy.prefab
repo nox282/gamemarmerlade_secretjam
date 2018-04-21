@@ -20,10 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4233805106771540}
   - component: {fileID: 33716899201335434}
-  - component: {fileID: 135810541475198516}
   - component: {fileID: 23421563837608648}
   m_Layer: 0
-  m_Name: Modele
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,15 +211,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FiringRate: 0
   MovementRate: 0
---- !u!135 &135810541475198516
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1424848754515660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
