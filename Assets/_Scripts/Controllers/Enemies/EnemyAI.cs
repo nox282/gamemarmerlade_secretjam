@@ -2,50 +2,100 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour {
-
-    public delegate Vector3 GetTarget(float timestamp);
-    public delegate Vector3 GetMovement(float timestamp);
+public class EnemyAI : MonoBehaviour
+{
+    public delegate Vector3 GetTargetFromTimestamp(float timestamp);
+    public delegate Vector3 GetTargetFromPosition(Vector3 position);
+    public delegate Vector3 GetMovementFromTimestamp(float timestamp);
+    public delegate Vector3 GetMovementFromPosition(Vector3 position);
 
     public float FiringRate = 2.0f;
     public float MovementRate = 1.0f;
 
-    private GetTarget CallGetTarget;
-    private GetMovement CallGetMovement;
+    private GetTargetFromTimestamp CallGetTargetFromTimestamp;
+    private GetTargetFromPosition CallGetTargetFromPosition;
+    private GetMovementFromTimestamp CallGetMovementFromTimestamp;
+    private GetMovementFromPosition CallGetMovementFromPosition;
 
     private float Timer = 0.0f;
     private EnemyController enemyController = null;
 
-    public EnemyAI(GetTarget _gt, GetMovement _gm) {
-        CallGetTarget = _gt;
-        CallGetMovement = _gm;
-    }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         enemyController = GetComponent<EnemyController>();
         StartCoroutine(AITimer());
 	}
 
-    private IEnumerator AITimer() {
-        while (true) {
+    private IEnumerator AITimer()
+    {
+        while (true)
+        {
             yield return new WaitForSeconds(1.0f);
             Timer++;
         }
     }
 
 	// Update is called once per frame
-	void Update () {
-        AcquireTarget(Timer);
-	}
-
-    private void AcquireTarget(float timestamp) {
-        if (timestamp % FiringRate == 0)
-            enemyController.Shoot(CallGetTarget(timestamp));
+	void Update ()
+    {
+        AcquireTarget(Timer, transform.position);
+        AcquireMovement(Timer, transform.position);
     }
 
-    private void AcquireMovement(float timestamp) {
+    public void SetTargetFromTimestampDelegate(GetTargetFromTimestamp pattern)
+    {
+        CallGetTargetFromTimestamp = pattern;
+    }
+
+    public void SetTargetFromPositionDelegate(GetTargetFromPosition pattern)
+    {
+        CallGetTargetFromPosition = pattern;
+    }
+
+    public void SetMovementFromTimestampDelegate(GetMovementFromTimestamp pattern)
+    {
+        CallGetMovementFromTimestamp = pattern;
+    }
+
+    public void SetMovementFromPositionDelegate(GetMovementFromPosition pattern)
+    {
+        CallGetMovementFromPosition = pattern;
+    }
+
+    private void AcquireTarget(float timestamp, Vector3 position)
+    {
+        if (timestamp % FiringRate == 0)
+        {
+            Vector3 target;
+
+            if (CallGetTargetFromTimestamp != null)
+            {
+                target = CallGetTargetFromTimestamp(timestamp);
+                if (target != Vector3.zero)
+                    enemyController.Shoot(target);
+            }
+            else if (CallGetTargetFromPosition != null)
+            {
+                target = CallGetTargetFromPosition(position);
+                if (target != Vector3.zero)
+                    enemyController.Shoot(target);
+            }
+            else
+                enemyController.Shoot();
+        }
+    }
+
+    private void AcquireMovement(float timestamp, Vector3 position)
+    {
         if (timestamp % MovementRate == 0)
-            enemyController.MoveTo(CallGetMovement(timestamp));
+        {
+            if (CallGetMovementFromTimestamp != null)
+                enemyController.MoveTo(CallGetMovementFromTimestamp(timestamp));
+            else if (CallGetMovementFromPosition != null)
+                enemyController.MoveTo(CallGetMovementFromPosition(position));
+        }
+            
     }
 }
