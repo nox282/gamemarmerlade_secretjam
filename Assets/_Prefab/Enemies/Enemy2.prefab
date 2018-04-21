@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FiringRate: 3
-  MovementRate: 1
+  MovementRate: 0.1
 --- !u!114 &114434142301688850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b140ff248abc6ea4eb41dcacf3bf320e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Magnitude: 10
+  Frequency: 1
+  Magnitude: 30
 --- !u!114 &114803567611016080
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     private GetMovementFromPosition CallGetMovementFromPosition;
 
     private float Timer = 0.0f;
+    private float FrameCount = 0.0f;
     private EnemyController enemyController = null;
 
 
@@ -42,6 +43,7 @@ public class EnemyAI : MonoBehaviour
     {
         AcquireTarget(Timer, transform.position);
         AcquireMovement(Timer, transform.position);
+        FrameCount += Time.deltaTime;
     }
 
     public void SetTargetFromTimestampDelegate(GetTargetFromTimestamp pattern)
@@ -89,12 +91,14 @@ public class EnemyAI : MonoBehaviour
 
     private void AcquireMovement(float timestamp, Vector3 position)
     {
-        if (timestamp % MovementRate == 0)
+        if (FrameCount > MovementRate)
         {
             if (CallGetMovementFromTimestamp != null)
                 enemyController.MoveTo(CallGetMovementFromTimestamp(timestamp));
             else if (CallGetMovementFromPosition != null)
                 enemyController.MoveTo(CallGetMovementFromPosition(position));
+
+            FrameCount = 0.0f;
         }
             
     }

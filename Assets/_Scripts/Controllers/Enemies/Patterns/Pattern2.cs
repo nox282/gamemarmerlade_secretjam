@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pattern2 : MonoBehaviour
 {
+    public float Frequency = 0.5f;
     public float Magnitude = 1.0f;
 
     
@@ -30,6 +31,6 @@ public class Pattern2 : MonoBehaviour
     Vector3 Move(float timestamp)
     {
         // Sine wave motion
-        return new Vector3(Mathf.Sin(timestamp) * Magnitude, 0, timestamp);
+        return new Vector3(Mathf.Sin(Time.time * Frequency) * Magnitude, 0, timestamp);
     }
 }

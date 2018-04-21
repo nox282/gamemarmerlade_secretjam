@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour {
     public void Shoot(Vector3 target) {
         ProjectileController pc = CreateBullet();
         if (pc != null)
-            pc.Initialize(target);
+            pc.InitializeWithDirection(target);
     }
 
     private ProjectileController CreateBullet() {
