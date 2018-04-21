@@ -56,7 +56,6 @@ public class EnemyController : MonoBehaviour {
                                             Quaternion.identity);
 
         return projectile.GetComponent<ProjectileController>();
-        
     }
 
     public void Hit(float damage) {
