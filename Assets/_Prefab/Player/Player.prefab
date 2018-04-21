@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 54460661898254566}
   - component: {fileID: 114912643990697376}
   - component: {fileID: 114014800753454108}
+  - component: {fileID: 114120287458915458}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -181,6 +182,17 @@ MonoBehaviour:
   Ammunition: {fileID: 1824513762611658, guid: b51c5888d796b7a418d44e61b6bd73c2, type: 2}
   AmmunitionSpawnPosition: 1
   fireDelay: 0
+--- !u!114 &114120287458915458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060930702832108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b187177cdb206514a8ea46f882d80521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114175936876451194
 MonoBehaviour:
   m_ObjectHideFlags: 1
