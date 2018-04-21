@@ -7,19 +7,18 @@ public class EnemyFactory : MonoBehaviour
 {
     public static EnemyFactory instance = null;
 
-    public List<GameObject> EnemyPrefabs;
+    public List<GameObject> EncounterPrefabs;       // Pre-defined groups of enemies
     public GameObject Target;
 
-    // Spawn settings
-    public int EncounterSize = 1;                   // Number of enemies to spawn at once
-    public float EncounterFrequency = 0.0f;         // How often to spawn encounters
-    public Vector3 EncounterSpawn = Vector3.zero;   // Coordinates where to spawn enemies
+    public float SpawnFrequency = 3.0f;
+    public Vector3 SpawnPosition = Vector3.zero;
 
     // Environmental
     public bool isPaused;
 
+    private GameObject Encounter = null;
     private float Timer;
-    private List<GameObject> Encounter;
+    private bool InCoolDown = false;
 
 
     void Awake()
@@ -32,56 +31,53 @@ public class EnemyFactory : MonoBehaviour
 
     void Start ()
     {
-        Encounter = new List<GameObject>();
-
-        if (EncounterFrequency > 0)
-            StartCoroutine(SpawnTimer());
+        SpawnEncounter();
     }
 
     private IEnumerator SpawnTimer()
     {
-        while (true)
+        InCoolDown = true;
+        Timer = 0;
+
+        while (Timer < SpawnFrequency)
         {
             yield return new WaitForSeconds(1.0f);
-            Timer++;
+            if (!isPaused)
+                Timer++;
         }
+
+        SpawnEncounter();
+        InCoolDown = false;
     }
 
-    void Update ()
+    void Update()
     {
-        if (EncounterFrequency > 0 && !isPaused && Timer >= EncounterFrequency)
+        if (!isPaused)
         {
-            SpawnEncounter();
-            Timer = 0;
-        }
-	}
+            if (CanSpawnEncounter() && !InCoolDown)
+                StartCoroutine(SpawnTimer());
+        }    
+    }
+
+    private bool CanSpawnEncounter()
+    {
+        return Encounter == null || Encounter.GetComponent<Encounter>().IsEmpty();
+    }
 
     private void SpawnEncounter()
     {
-        int spawnCount = EncounterSize - Encounter.Count;
+        int index = Random.Range(0, EncounterPrefabs.Count);
 
-        if (spawnCount > 0 && EnemyPrefabs != null && EnemyPrefabs.Count > 0)
-        {
-            for (int i = 0; i < spawnCount; i++)
-            {
-                int index = Random.Range(0, EnemyPrefabs.Count);
+        if (Encounter != null)
+            DestroyObject(Encounter);
 
-                GameObject enemy = Instantiate(EnemyPrefabs[index], EncounterSpawn,
-                    Quaternion.identity) as GameObject;
-
-                enemy.GetComponent<EnemyController>().LookTarget = Target;
-
-                Encounter.Add(enemy);
-            }
-        }
-    }
+        Encounter = Instantiate(EncounterPrefabs[index], SpawnPosition, Quaternion.identity);
+        Encounter.GetComponent<Encounter>().CreateEnemies(Target);
+    }    
 
     public void EnemyDied(GameObject enemy)
     {
-        Encounter.Remove(enemy);
-        DestroyObject(enemy);
-
-        if (EncounterFrequency <= 0)
-            SpawnEncounter();
+        if (enemy != null)
+            Encounter.GetComponent<Encounter>().RemoveEnemy(enemy);
     }
 }

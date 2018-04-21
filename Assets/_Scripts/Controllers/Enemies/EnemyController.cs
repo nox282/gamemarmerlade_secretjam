@@ -17,13 +17,13 @@ public class EnemyController : MonoBehaviour {
     public Vector3 MoveTarget = new Vector3(0.0f, 0.0f, 0.0f);
 
     // Environmental
-    public bool inTutorial = false;
-    public bool isPaused;
+    public bool InTutorial = false;
+    public bool IsPaused;
 
 
     // Update is called once per frame
     void Update () {
-        if (IsAIActive && !isPaused) {
+        if (IsAIActive && !IsPaused) {
             ApplyMovement();
             transform.LookAt(LookTarget.transform);
         }
@@ -67,4 +67,6 @@ public class EnemyController : MonoBehaviour {
     public void Hit(float damage) {
         Debug.Log(gameObject.name + " hit for " + damage);
     }
+
+    // TODO: on die, notify factory
 }
