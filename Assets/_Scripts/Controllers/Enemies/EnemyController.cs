@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
+
     // Config
     public float MoveSpeed = 10.0f;
     public float TargetDistanceThreshold = 0.1f;
@@ -14,10 +15,15 @@ public class EnemyController : MonoBehaviour {
 
     public GameObject LookTarget = null;
     public Vector3 MoveTarget = new Vector3(0.0f, 0.0f, 0.0f);
-	
-	// Update is called once per frame
-	void Update () {
-        if (IsAIActive) {
+
+    // Environmental
+    public bool inTutorial = false;
+    public bool isPaused;
+
+
+    // Update is called once per frame
+    void Update () {
+        if (IsAIActive && !isPaused) {
             ApplyMovement();
             transform.LookAt(LookTarget.transform);
         }

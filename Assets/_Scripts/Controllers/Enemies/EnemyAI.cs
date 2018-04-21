@@ -12,6 +12,9 @@ public class EnemyAI : MonoBehaviour
     public float FiringRate = 2.0f;
     public float MovementRate = 1.0f;
 
+    // Environmental
+    public bool isPaused;
+
     private GetTargetFromTimestamp CallGetTargetFromTimestamp;
     private GetTargetFromPosition CallGetTargetFromPosition;
     private GetMovementFromTimestamp CallGetMovementFromTimestamp;
@@ -41,9 +44,12 @@ public class EnemyAI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        AcquireTarget(Timer, transform.position);
-        AcquireMovement(Timer, transform.position);
-        FrameCount += Time.deltaTime;
+        if (!isPaused)
+        {
+            AcquireTarget(Timer, transform.position);
+            AcquireMovement(Timer, transform.position);
+            FrameCount += Time.deltaTime;
+        }
     }
 
     public void SetTargetFromTimestampDelegate(GetTargetFromTimestamp pattern)
