@@ -10,7 +10,6 @@ public class EnemyAI : MonoBehaviour {
     public float FiringRate = 2.0f;
     public float MovementRate = 1.0f;
 
-
     private GetTarget CallGetTarget;
     private GetMovement CallGetMovement;
 

@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileSpeed: 10
+  LifeSpan: 10
 --- !u!135 &135551092545447356
 SphereCollider:
   m_ObjectHideFlags: 1
