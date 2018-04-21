@@ -69,6 +69,7 @@ public class GameManager : Monobehaviour {
 	3. Rename new one as desired
 - Organize the prefab folder into subcategories folder
 - When creating a GameObject, don't forget to reset its transform component
+- Use the input manager
 ## Unity UI
 - Use a `Canvas Scaler` component in the top level UI GameObject with `UI Scale Mode` set to `Scale With Screen Size` 
 - Use empty GameObjects as containers for your UI elements
