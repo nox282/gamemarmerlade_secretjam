@@ -56,6 +56,7 @@ public class GameManager : Monobehaviour {
 	- Bad Example : `Debug.Log(waitingRoom.Count);`
 	- Good Exemple : `Debug.Log(waitingRoom.Count + "patient(s) currently waiting in the Waiting Room.");`
 - Clean your debugging logs !
+- Use normalized vector with a constant factor when dealing with movement
 ## Unity
 - Every element of a scene should be in a prefab, even if there is only one instance of it
 - When developing a scene element, only the **top level** GameObject should require attributes initialization from other GameObjects in the scene
@@ -69,8 +70,8 @@ public class GameManager : Monobehaviour {
 - Organize the prefab folder into subcategories folder
 - When creating a GameObject, don't forget to reset its transform component
 ## Unity UI
-- Use empty GameObjects as containers for your UI elements
 - Use a `Canvas Scaler` component in the top level UI GameObject with `UI Scale Mode` set to `Scale With Screen Size` 
+- Use empty GameObjects as containers for your UI elements
 - Use anchors to place the container GameObject, then adjust the contained GameObjects using the center anchor
 - Try to refrain from using editor initialization when setting public attributes on UI Controllers script. Use the the `GameObject.FindObject` methods instead
 ## Wwise
