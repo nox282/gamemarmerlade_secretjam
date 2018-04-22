@@ -51,4 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a00491aabac4d46bcac5df304fde4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageName: Distance
+  DamageName: Green
+  DamagePoints: 5
