@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7dfbc1092a2d96e47b84bd5631772f87
-timeCreated: 1524343176
+guid: 5959d816b386ec640aedda9aa0a568ec
+timeCreated: 1524412343
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,37 +10,37 @@ ModelImporter:
     100004: Bone_L_Thumb
     100006: Bone_R_Hand
     100008: Bone_R_Thumb
-    100010: Character_WhiteBloodCell
-    100012: CTRL_Head
-    100014: CTRL_L_Hand
-    100016: CTRL_L_Thumb
-    100018: CTRL_Master
-    100020: CTRL_R_Hand
-    100022: CTRL_R_Thumb
-    100024: NUB_Head
-    100026: NUB_L_Hand
-    100028: NUB_L_Thumb
-    100030: NUB_R_Hand
-    100032: NUB_R_Thumb
-    100034: //RootNode
+    100010: //RootNode
+    100012: Character_WhiteBloodCell
+    100014: CTRL_Head
+    100016: CTRL_L_Hand
+    100018: CTRL_L_Thumb
+    100020: CTRL_Master
+    100022: CTRL_R_Hand
+    100024: CTRL_R_Thumb
+    100026: NUB_Head
+    100028: NUB_L_Hand
+    100030: NUB_L_Thumb
+    100032: NUB_R_Hand
+    100034: NUB_R_Thumb
     400000: Bone_Head
     400002: Bone_L_Hand
     400004: Bone_L_Thumb
     400006: Bone_R_Hand
     400008: Bone_R_Thumb
-    400010: Character_WhiteBloodCell
-    400012: CTRL_Head
-    400014: CTRL_L_Hand
-    400016: CTRL_L_Thumb
-    400018: CTRL_Master
-    400020: CTRL_R_Hand
-    400022: CTRL_R_Thumb
-    400024: NUB_Head
-    400026: NUB_L_Hand
-    400028: NUB_L_Thumb
-    400030: NUB_R_Hand
-    400032: NUB_R_Thumb
-    400034: //RootNode
+    400010: //RootNode
+    400012: Character_WhiteBloodCell
+    400014: CTRL_Head
+    400016: CTRL_L_Hand
+    400018: CTRL_L_Thumb
+    400020: CTRL_Master
+    400022: CTRL_R_Hand
+    400024: CTRL_R_Thumb
+    400026: NUB_Head
+    400028: NUB_L_Hand
+    400030: NUB_L_Thumb
+    400032: NUB_R_Hand
+    400034: NUB_R_Thumb
     2100000: 'Material #2'
     2100002: 'Material #5'
     2100004: 'Material #4'
