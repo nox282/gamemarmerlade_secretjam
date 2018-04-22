@@ -5,9 +5,38 @@ using UnityEngine;
 
 public class Encounter : MonoBehaviour
 {
+    public float TargetDistanceThreshold = 0.1f;
+    public float ScrollingSpeed = 10.0f;
+
     public List<GameObject> enemyPrefabs;
     private List<GameObject> Enemies;
 
+    private GameObject Path;
+    private Transform CP;
+    private int pathIndex = 0;
+
+
+    void Start()
+    {
+        Path = GameObject.FindGameObjectWithTag("Path");
+        GetNextCP();
+        transform.position = CP.transform.position;
+    }
+
+    void Update()
+    {
+        if (CP != null && Vector3.Distance(transform.position, CP.position) > TargetDistanceThreshold)
+            transform.position += (CP.position - transform.position).normalized * ScrollingSpeed * Time.deltaTime;
+        else
+            GetNextCP();
+
+        transform.LookAt(CP);
+    }
+
+    void GetNextCP()
+    {
+        CP = Path.transform.GetChild(pathIndex++);
+    }
 
     public void CreateEnemies(GameObject target)
     {
@@ -18,6 +47,7 @@ public class Encounter : MonoBehaviour
             GameObject enemy = Instantiate(enemyPrefabs[index],
                 enemyPrefabs[index].transform.position, Quaternion.identity);
             enemy.GetComponent<EnemyController>().LookTarget = target;
+            enemy.transform.parent = gameObject.transform;
             Enemies.Add(enemy);
         }
     }

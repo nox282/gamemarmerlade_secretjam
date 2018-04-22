@@ -11,8 +11,8 @@ public class Pattern1 : MonoBehaviour
     void Start ()
     {
         EnemyAI handler = GetComponent<EnemyAI>();
-        handler.SetTargetFromTimestampDelegate(Target);
-        handler.SetMovementFromPositionDelegate(Move);
+        handler.SetTargetDelegate(Target);
+        handler.SetMovementDelegate(Move);
 	}
 	
 	// Update is called once per frame
@@ -25,16 +25,17 @@ public class Pattern1 : MonoBehaviour
     {
         if (timestamp != LastTimeShot)
         {
+            // Shoot in the direction the enemy is facing
             LastTimeShot = timestamp;
-            return new Vector3(0, 0, timestamp);
+            return transform.parent.forward;
         }
 
         return Vector3.zero;
     }
 
-    Vector3 Move(Vector3 position)
+    Vector3 Move(float timestamp)
     {
         // Translational motion
-        return position + new Vector3(0, 0, 1);
+        return Vector3.zero;
     }
 }

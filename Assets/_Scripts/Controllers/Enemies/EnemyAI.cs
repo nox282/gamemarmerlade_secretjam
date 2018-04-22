@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public delegate Vector3 GetTargetFromTimestamp(float timestamp);
-    public delegate Vector3 GetTargetFromPosition(Vector3 position);
-    public delegate Vector3 GetMovementFromTimestamp(float timestamp);
-    public delegate Vector3 GetMovementFromPosition(Vector3 position);
+    public delegate Vector3 GetTarget(float timestamp);
+    public delegate Vector3 GetMovement(float timestamp);
 
     public float FiringRate = 2.0f;
     public float MovementRate = 1.0f;
@@ -15,10 +13,8 @@ public class EnemyAI : MonoBehaviour
     // Environmental
     public bool isPaused;
 
-    private GetTargetFromTimestamp CallGetTargetFromTimestamp;
-    private GetTargetFromPosition CallGetTargetFromPosition;
-    private GetMovementFromTimestamp CallGetMovementFromTimestamp;
-    private GetMovementFromPosition CallGetMovementFromPosition;
+    private GetTarget CallGetTarget;
+    private GetMovement CallGetMovement;
 
     private float Timer = 0.0f;
     private float FrameCount = 0.0f;
@@ -46,47 +42,31 @@ public class EnemyAI : MonoBehaviour
     {
         if (!isPaused)
         {
-            AcquireTarget(Timer, transform.position);
-            AcquireMovement(Timer, transform.position);
+            AcquireTarget(Timer);
+            AcquireMovement(Timer);
             FrameCount += Time.deltaTime;
         }
     }
 
-    public void SetTargetFromTimestampDelegate(GetTargetFromTimestamp pattern)
+    public void SetTargetDelegate(GetTarget pattern)
     {
-        CallGetTargetFromTimestamp = pattern;
+        CallGetTarget = pattern;
     }
 
-    public void SetTargetFromPositionDelegate(GetTargetFromPosition pattern)
+    public void SetMovementDelegate(GetMovement pattern)
     {
-        CallGetTargetFromPosition = pattern;
+        CallGetMovement = pattern;
     }
 
-    public void SetMovementFromTimestampDelegate(GetMovementFromTimestamp pattern)
-    {
-        CallGetMovementFromTimestamp = pattern;
-    }
-
-    public void SetMovementFromPositionDelegate(GetMovementFromPosition pattern)
-    {
-        CallGetMovementFromPosition = pattern;
-    }
-
-    private void AcquireTarget(float timestamp, Vector3 position)
+    private void AcquireTarget(float timestamp)
     {
         if (timestamp % FiringRate == 0)
         {
             Vector3 target;
 
-            if (CallGetTargetFromTimestamp != null)
+            if (CallGetTarget != null)
             {
-                target = CallGetTargetFromTimestamp(timestamp);
-                if (target != Vector3.zero)
-                    enemyController.Shoot(target);
-            }
-            else if (CallGetTargetFromPosition != null)
-            {
-                target = CallGetTargetFromPosition(position);
+                target = CallGetTarget(timestamp);
                 if (target != Vector3.zero)
                     enemyController.Shoot(target);
             }
@@ -95,17 +75,14 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void AcquireMovement(float timestamp, Vector3 position)
+    private void AcquireMovement(float timestamp)
     {
         if (FrameCount > MovementRate)
         {
-            if (CallGetMovementFromTimestamp != null)
-                enemyController.MoveTo(CallGetMovementFromTimestamp(timestamp));
-            else if (CallGetMovementFromPosition != null)
-                enemyController.MoveTo(CallGetMovementFromPosition(position));
-
-            FrameCount = 0.0f;
-        }
+            if (CallGetMovement != null)
+                enemyController.MoveTo(CallGetMovement(timestamp));
             
+            FrameCount = 0.0f;
+        }            
     }
 }

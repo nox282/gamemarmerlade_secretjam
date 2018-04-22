@@ -30,8 +30,8 @@ public class EnemyController : MonoBehaviour {
 	}
 
     private void ApplyMovement() {
-        if(Vector3.Distance(transform.position, MoveTarget) > TargetDistanceThreshold)
-            transform.position += (MoveTarget - transform.position).normalized * MoveSpeed * Time.deltaTime;
+        if (Vector3.Distance(transform.localPosition, MoveTarget) > TargetDistanceThreshold)
+            transform.localPosition += (MoveTarget - transform.localPosition).normalized * MoveSpeed * Time.deltaTime;
     }
 
     public void MoveTo(Vector3 target) {

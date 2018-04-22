@@ -8,13 +8,15 @@ public class Pattern3 : MonoBehaviour
     public float CircleSize = 10.0f;
     public float zSpeed = 1.0f;
 
+    private float LastTimeShot = -1;
 
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
     {
         EnemyAI handler = GetComponent<EnemyAI>();
-        handler.SetTargetFromPositionDelegate(Target);
-        handler.SetMovementFromTimestampDelegate(Move);
+        handler.SetTargetDelegate(Target);
+        handler.SetMovementDelegate(Move);
     }
 	
 	// Update is called once per frame
@@ -23,18 +25,23 @@ public class Pattern3 : MonoBehaviour
 		
 	}
 
-    Vector3 Target(Vector3 position)
+    Vector3 Target(float timestamp)
     {
-        return position + new Vector3(0, 0, 1);
+        if (timestamp != LastTimeShot)
+        {
+            LastTimeShot = timestamp;
+            return transform.parent.forward;
+        }
+
+        return Vector3.zero;
     }
 
     Vector3 Move(float timestamp)
     {
         // Spiral motion
-        var xPos = Mathf.Sin(timestamp * CircleSpeed) * CircleSize;
-        var yPos = Mathf.Cos(timestamp * CircleSpeed) * CircleSize;
-        var zPos = zSpeed * Time.deltaTime;
+        var xPos = Mathf.Sin(Time.time * CircleSpeed) * CircleSize;
+        var yPos = Mathf.Cos(Time.time * CircleSpeed) * CircleSize;
 
-        return new Vector3(xPos, yPos, zPos);
+        return new Vector3(xPos, yPos, 0);
     }
 }

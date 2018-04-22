@@ -156,8 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4729f7f38b4c0e948878f8fe55060188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FiringRate: 3
+  FiringRate: 1
   MovementRate: 0.1
+  isPaused: 0
 --- !u!114 &114434142301688850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,8 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b140ff248abc6ea4eb41dcacf3bf320e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frequency: 1
-  Magnitude: 30
+  Frequency: 3
+  Magnitude: 5.18
 --- !u!114 &114803567611016080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,6 +211,8 @@ MonoBehaviour:
   Ammunition: {fileID: 1824513762611658, guid: b51c5888d796b7a418d44e61b6bd73c2, type: 2}
   LookTarget: {fileID: 0}
   MoveTarget: {x: 0, y: 0, z: 0}
+  InTutorial: 0
+  IsPaused: 0
 --- !u!114 &114910462421995654
 MonoBehaviour:
   m_ObjectHideFlags: 1
