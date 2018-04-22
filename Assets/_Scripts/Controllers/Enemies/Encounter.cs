@@ -13,7 +13,7 @@ public class Encounter : MonoBehaviour
 
     private GameObject Path;
     private Transform CP;
-    private int pathIndex = 0;
+    public int pathIndex = 0;
 
 
     void Start()
@@ -46,6 +46,7 @@ public class Encounter : MonoBehaviour
         {
             GameObject enemy = Instantiate(enemyPrefabs[index],
                 position, Quaternion.identity);
+
             enemy.GetComponent<EnemyController>().LookTarget = target;
             enemy.transform.parent = gameObject.transform;
             Enemies.Add(enemy);

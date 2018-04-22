@@ -11,7 +11,7 @@ public class EnemyFactory : MonoBehaviour
     public GameObject Target;
 
     public float SpawnFrequency = 3.0f;
-    public Vector3 SpawnPosition = Vector3.zero;
+    public int SpawnCPIndex;
 
     // Environmental
     public bool isPaused;
@@ -31,7 +31,7 @@ public class EnemyFactory : MonoBehaviour
 
     void Start ()
     {
-        SpawnEncounter();
+
     }
 
     private IEnumerator SpawnTimer()
@@ -50,7 +50,7 @@ public class EnemyFactory : MonoBehaviour
         InCoolDown = false;
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (!isPaused)
         {
@@ -71,8 +71,11 @@ public class EnemyFactory : MonoBehaviour
         if (Encounter != null)
             DestroyObject(Encounter);
 
-        Encounter = Instantiate(EncounterPrefabs[index], SpawnPosition, Quaternion.identity);
+        Encounter = Instantiate(EncounterPrefabs[index], transform.position, Quaternion.identity);
+        Encounter.GetComponent<Encounter>().pathIndex = SpawnCPIndex +
+            Camera.main.GetComponent<CameraController>().pathIndex;
         Encounter.GetComponent<Encounter>().CreateEnemies(Target, transform.position);
+
     }    
 
     public void EnemyDied(GameObject enemy)

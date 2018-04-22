@@ -124,10 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b127eca3223b342847a6ad7757f266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EncounterPrefabs: []
+  EncounterPrefabs:
+  - {fileID: 1256719728441152, guid: 5d14b06392590764ca907138af2e2d26, type: 2}
   Target: {fileID: 0}
   SpawnFrequency: 3
-  SpawnPosition: {x: 0, y: 0, z: 0}
+  SpawnCPIndex: 2
   isPaused: 0
 --- !u!114 &114884763176748712
 MonoBehaviour:
