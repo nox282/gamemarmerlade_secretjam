@@ -78,9 +78,18 @@ public class EnemyFactory : MonoBehaviour
 
     }    
 
-    public void EnemyDied(GameObject enemy)
+    public void EnemyDied(GameObject enemy, bool killed)
     {
         if (enemy != null)
+        {
             Encounter.GetComponent<Encounter>().RemoveEnemy(enemy);
+
+            if (killed)
+            {
+                PlayerController player = Target.GetComponent<PlayerController>();
+                if (player != null)
+                    player.EnemyDied();
+            }
+        }
     }
 }

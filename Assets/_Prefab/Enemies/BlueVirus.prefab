@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114815886615025022}
   - component: {fileID: 114154137142268922}
   - component: {fileID: 114598054357241896}
-  - component: {fileID: 114104326478577000}
+  - component: {fileID: 114133084840847336}
   m_Layer: 0
   m_Name: BlueVirus
   m_TagString: Untagged
@@ -145,7 +145,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114104326478577000
+--- !u!114 &114133084840847336
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -153,12 +153,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1410660067921212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 454b9f153d0c7f944a7468b0064627be, type: 3}
+  m_Script: {fileID: 11500000, guid: 51dffd124ecf71946a1d00eba22142fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CircleSpeed: 5
-  CircleSize: 3.5
-  zSpeed: 1
 --- !u!114 &114154137142268922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87acef47b537314c9eb8361eabc0c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
+  MoveSpeed: 1
   TargetDistanceThreshold: 0.1
   AmmunitionSpawnPosition: 2
   IsAIActive: 1

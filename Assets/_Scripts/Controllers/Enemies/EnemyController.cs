@@ -46,8 +46,17 @@ public class EnemyController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (IsAIActive && !IsPaused) {
-            ApplyMovement();
-            transform.LookAt(LookTarget.transform);
+
+            if (LookTarget.transform.position.z > transform.position.z)
+            {
+                Die(false);
+                return;
+            }
+            else
+            {
+                ApplyMovement();
+                transform.LookAt(LookTarget.transform);
+            }
         }
 
         Label.transform.position = Camera.main.WorldToScreenPoint(transform.position + LabelOffset);
@@ -102,19 +111,23 @@ public class EnemyController : MonoBehaviour {
 
         if (HP == 0)
         {
-            EnemyFactory factory = FindObjectOfType<EnemyFactory>();
-            if (factory != null)
-                factory.EnemyDied(gameObject);
-
-            Destroy(Label);
-            Destroy(gameObject);
-
+            Die(true);
             return false;
         }
         else
             HealthText.text = "" + HP;
 
         return true;
+    }
+
+    private void Die(bool killed)
+    {
+        EnemyFactory factory = FindObjectOfType<EnemyFactory>();
+        if (factory != null)
+            factory.EnemyDied(gameObject, killed);
+
+        Destroy(Label);
+        Destroy(gameObject);
     }
    
     private void OnTriggerEnter(Collider other)

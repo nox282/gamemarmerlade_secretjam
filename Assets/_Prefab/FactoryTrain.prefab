@@ -9,33 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1209402458861428}
+  m_RootGameObject: {fileID: 1388260011007476}
   m_IsPrefabParent: 1
---- !u!1 &1105264558306578
+--- !u!1 &1388260011007476
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4291417826209460}
-  - component: {fileID: 114884763176748712}
-  m_Layer: 0
-  m_Name: CitizenFactory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1209402458861428
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4297214953880924}
-  - component: {fileID: 114331524947748714}
+  - component: {fileID: 4522979192783630}
+  - component: {fileID: 114762986537274600}
   m_Layer: 0
   m_Name: FactoryTrain
   m_TagString: Untagged
@@ -43,15 +27,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1430673771597084
+--- !u!1 &1453981327638552
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4838741875617120}
-  - component: {fileID: 114871747148425900}
+  - component: {fileID: 4495840594310904}
+  - component: {fileID: 114272299958916872}
   m_Layer: 0
   m_Name: EnemyFactory
   m_TagString: Untagged
@@ -59,83 +43,91 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4291417826209460
+--- !u!1 &1913023692653512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4767179372423730}
+  - component: {fileID: 114293157674135220}
+  m_Layer: 0
+  m_Name: CitizenFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4495840594310904
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1105264558306578}
+  m_GameObject: {fileID: 1453981327638552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4297214953880924}
+  m_Father: {fileID: 4522979192783630}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4297214953880924
+--- !u!4 &4522979192783630
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1209402458861428}
+  m_GameObject: {fileID: 1388260011007476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 11.300001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4838741875617120}
-  - {fileID: 4291417826209460}
+  - {fileID: 4767179372423730}
+  - {fileID: 4495840594310904}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4838741875617120
+--- !u!4 &4767179372423730
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1430673771597084}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1913023692653512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4297214953880924}
+  m_Father: {fileID: 4522979192783630}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114331524947748714
+--- !u!114 &114272299958916872
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1209402458861428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 907a6d110cb246743b7f742ff2c34ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DistanceFromCamera: 7
-  pathIndex: 0
---- !u!114 &114871747148425900
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1430673771597084}
+  m_GameObject: {fileID: 1453981327638552}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70b127eca3223b342847a6ad7757f266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EncounterPrefabs:
-  - {fileID: 1256719728441152, guid: 5d14b06392590764ca907138af2e2d26, type: 2}
+  - {fileID: 1789385946975422, guid: 1f00bb440fc74d847979b2e4fa2335e4, type: 2}
+  - {fileID: 1146333293818196, guid: a08c724cb8c68a14cba03cc835bbdbe2, type: 2}
+  - {fileID: 1503455864063830, guid: 5ceada4f8bec13e4b93faba3eb92a481, type: 2}
+  - {fileID: 1625192743852738, guid: c53e4b4bd47c7cc4596305b89f3a0226, type: 2}
+  - {fileID: 1363214920051470, guid: acb8312e030f9a74391ba30c1981a736, type: 2}
+  - {fileID: 1185802141753392, guid: ac92d7fbd6ca56541bfa8896003ee537, type: 2}
   Target: {fileID: 0}
   SpawnFrequency: 3
   SpawnCPIndex: 2
   isPaused: 0
---- !u!114 &114884763176748712
+--- !u!114 &114293157674135220
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1105264558306578}
+  m_GameObject: {fileID: 1913023692653512}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e649a7ee02b046b48800a9c0cd201d2c, type: 3}
@@ -147,3 +139,16 @@ MonoBehaviour:
   - {fileID: 1202919663131046, guid: e5e31ffbdb4e416458aa1303f91e3cd7, type: 2}
   - {fileID: 1054677675817054, guid: 44cff61b1cfea36479283647c269c572, type: 2}
   CitizenList: []
+--- !u!114 &114762986537274600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388260011007476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907a6d110cb246743b7f742ff2c34ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DistanceFromCamera: 7
+  pathIndex: 7

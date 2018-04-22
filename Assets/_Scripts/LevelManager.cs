@@ -28,6 +28,11 @@ public class LevelManager : MonoBehaviour {
         SceneManager.LoadScene(level);
     }
 
+    public void GameOver(float score) {
+        SceneManager.LoadScene("GameOver");
+
+    }
+
     // Quit game
     public void Quit() {
         Application.Quit();

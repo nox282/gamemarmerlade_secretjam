@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1369523436953042}
+  m_RootGameObject: {fileID: 1185802141753392}
   m_IsPrefabParent: 1
---- !u!1 &1369523436953042
+--- !u!1 &1185802141753392
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4418145867527438}
-  - component: {fileID: 114566516723816658}
+  - component: {fileID: 4984498477991152}
+  - component: {fileID: 114219804063408778}
   m_Layer: 0
-  m_Name: EnemyFactory
+  m_Name: Encounter3PPY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4418145867527438
+--- !u!4 &4984498477991152
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369523436953042}
+  m_GameObject: {fileID: 1185802141753392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,25 +40,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114566516723816658
+--- !u!114 &114219804063408778
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369523436953042}
+  m_GameObject: {fileID: 1185802141753392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b127eca3223b342847a6ad7757f266, type: 3}
+  m_Script: {fileID: 11500000, guid: a7dc48adbd58abc489d850ef66fade41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EncounterPrefabs:
-  - {fileID: 1789385946975422, guid: 1f00bb440fc74d847979b2e4fa2335e4, type: 2}
-  - {fileID: 1146333293818196, guid: a08c724cb8c68a14cba03cc835bbdbe2, type: 2}
-  - {fileID: 1503455864063830, guid: 5ceada4f8bec13e4b93faba3eb92a481, type: 2}
-  - {fileID: 1625192743852738, guid: c53e4b4bd47c7cc4596305b89f3a0226, type: 2}
-  - {fileID: 1363214920051470, guid: acb8312e030f9a74391ba30c1981a736, type: 2}
-  - {fileID: 1185802141753392, guid: ac92d7fbd6ca56541bfa8896003ee537, type: 2}
-  Target: {fileID: 0}
-  SpawnFrequency: 3
-  SpawnCPIndex: 2
-  isPaused: 0
+  TargetDistanceThreshold: 0.1
+  ScrollingSpeed: 2
+  enemyPrefabs:
+  - {fileID: 1101588464971500, guid: fd083f33e4011424096e7589e2802393, type: 2}
+  - {fileID: 1923713327620550, guid: 660927930224ed94080c130fd4c08ea6, type: 2}
+  - {fileID: 1410660067921212, guid: 1586b15e3feffe9489b9bcb2a7576837, type: 2}
+  pathIndex: 0
