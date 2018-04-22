@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114815886615025022}
   - component: {fileID: 114154137142268922}
   - component: {fileID: 114598054357241896}
-  - component: {fileID: 114104326478577000}
+  - component: {fileID: 114385129800296748}
   m_Layer: 0
   m_Name: GreenVirus
   m_TagString: Untagged
@@ -145,20 +145,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114104326478577000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1410660067921212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 454b9f153d0c7f944a7468b0064627be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CircleSpeed: 5
-  CircleSize: 3.5
-  zSpeed: 1
 --- !u!114 &114154137142268922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +159,19 @@ MonoBehaviour:
   DamageTypes:
   - {fileID: 114999942009172296, guid: 21f500f78cc77554984db1591b370781, type: 2}
   ResistanceFactor: 1.25
+--- !u!114 &114385129800296748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410660067921212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b140ff248abc6ea4eb41dcacf3bf320e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Frequency: 3
+  Magnitude: 5.18
 --- !u!114 &114521021836004750
 MonoBehaviour:
   m_ObjectHideFlags: 1

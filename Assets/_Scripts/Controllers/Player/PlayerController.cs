@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour {
@@ -35,6 +36,12 @@ public class PlayerController : MonoBehaviour {
 
     // Inventory
     public List<GameObject> Inventory;
+
+    public float HP = 100;
+    public float score = 0;
+
+    public Text ScoreText;
+    public Text HealthText;
     
 
     // Use this for initialization
@@ -48,6 +55,9 @@ public class PlayerController : MonoBehaviour {
         Movement = new Vector3(0, 0, 0);
 
         Inventory = new List<GameObject>();
+
+        ScoreText.text = "" + score;
+        HealthText.text = "" + HP;
 	}
 	
 	// Update is called once per frame
@@ -123,13 +133,36 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void EnemyDied()
+    {
+        score += 10;
+        ScoreText.text = "" + score;
+    }
+
     private void OnTriggerEnter(Collider other) {
+
         Ammunition ammunition = other.GetComponent<Ammunition>();
 
         if (ammunition != null) {
             PickUpAmmunition(ammunition);
             ammunition.Destroy();
         }
+        else
+        {
+            ProjectileController projectile = other.GetComponentInParent<ProjectileController>();
+
+            if (projectile != null)
+            {
+                Destroy(other);
+
+                HP -= 5;
+                if (HP <= 0)
+                    GameObject.FindObjectOfType<LevelManager>().GameOver(score);
+                else
+                    HealthText.text = "" + HP;
+            }
+        }
+
     }
 
     private void PickUpAmmunition(Ammunition ammunition) {

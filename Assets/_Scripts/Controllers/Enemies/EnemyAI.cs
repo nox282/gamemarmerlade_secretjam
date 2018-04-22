@@ -62,15 +62,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (timestamp % FiringRate == 0)
         {
-            Vector3 target;
-
-            if (CallGetTarget != null)
-            {
-                target = CallGetTarget(timestamp);
-                if (target != Vector3.zero)
-                    enemyController.Shoot(target);
-            }
-            else
+            if (CallGetTarget != null && CallGetTarget(timestamp) != Vector3.zero)
                 enemyController.Shoot();
         }
     }
