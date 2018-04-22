@@ -72,7 +72,7 @@ public class EnemyFactory : MonoBehaviour
             DestroyObject(Encounter);
 
         Encounter = Instantiate(EncounterPrefabs[index], SpawnPosition, Quaternion.identity);
-        Encounter.GetComponent<Encounter>().CreateEnemies(Target);
+        Encounter.GetComponent<Encounter>().CreateEnemies(Target, transform.position);
     }    
 
     public void EnemyDied(GameObject enemy)

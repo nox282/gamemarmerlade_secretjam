@@ -38,14 +38,14 @@ public class Encounter : MonoBehaviour
         CP = Path.transform.GetChild(pathIndex++);
     }
 
-    public void CreateEnemies(GameObject target)
+    public void CreateEnemies(GameObject target, Vector3 position)
     {
         Enemies = new List<GameObject>();
 
         for (int index = 0; index < enemyPrefabs.Count; index++)
         {
             GameObject enemy = Instantiate(enemyPrefabs[index],
-                enemyPrefabs[index].transform.position, Quaternion.identity);
+                position, Quaternion.identity);
             enemy.GetComponent<EnemyController>().LookTarget = target;
             enemy.transform.parent = gameObject.transform;
             Enemies.Add(enemy);
