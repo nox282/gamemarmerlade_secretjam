@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: {fileID: 1834258194844206, guid: 21f500f78cc77554984db1591b370781, type: 2}
+  Projectile: {fileID: 1177920919461616, guid: a22b3cbb38a31a84aa53a619af8ba0fc, type: 2}
 --- !u!136 &136564942616495784
 CapsuleCollider:
   m_ObjectHideFlags: 1

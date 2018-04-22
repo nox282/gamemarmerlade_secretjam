@@ -89,22 +89,24 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        Amunition amunition = other.GetComponent<Amunition>();
+        Ammunition ammunition = other.GetComponent<Ammunition>();
 
-        if (amunition != null) {
-            PickUpAmunition(amunition.Damage);
-            amunition.Destroy();
+        if (ammunition != null) {
+            PickUpAmmunition(ammunition);
+            ammunition.Destroy();
         }
     }
 
-    private void PickUpAmunition(GameObject newDamage) {
-        string newDamageName = newDamage.GetComponent<Damage>().DamageName;
+    private void PickUpAmmunition(Ammunition ammunition) {
+        string newDamageName = ammunition.Damage.GetComponent<Damage>().DamageName;
 
-        foreach(GameObject damage in Inventory) {
+        Ammunition = ammunition.Projectile;
+        
+        foreach (GameObject damage in Inventory) {
             if (damage.GetComponent<Damage>().DamageName == newDamageName)
                 return;
         }
 
-        Inventory.Add(newDamage);
+        Inventory.Add(ammunition.Damage);
     }
 }

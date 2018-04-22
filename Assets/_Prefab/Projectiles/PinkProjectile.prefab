@@ -9,46 +9,75 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1420520983649940}
+  m_RootGameObject: {fileID: 1445327560831014}
   m_IsPrefabParent: 1
---- !u!1 &1420520983649940
+--- !u!1 &1208576670297198
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4342770618434960}
-  - component: {fileID: 33991616580290012}
-  - component: {fileID: 136358366186395768}
-  - component: {fileID: 23553959954533082}
-  - component: {fileID: 114154476537537910}
+  - component: {fileID: 4858865965350294}
+  - component: {fileID: 33459396164819714}
+  - component: {fileID: 135115173899643918}
+  - component: {fileID: 23903058782126892}
   m_Layer: 0
-  m_Name: TurquoiseAmunition
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4342770618434960
+--- !u!1 &1445327560831014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4077876277832684}
+  - component: {fileID: 114134261882499652}
+  m_Layer: 0
+  m_Name: PinkProjectile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4077876277832684
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1420520983649940}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1445327560831014}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07944828, y: 0.07944828, z: 0.07944828}
-  m_Children: []
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children:
+  - {fileID: 4858865965350294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23553959954533082
+--- !u!4 &4858865965350294
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208576670297198}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4077876277832684}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23903058782126892
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1420520983649940}
+  m_GameObject: {fileID: 1208576670297198}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -77,36 +106,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33991616580290012
+--- !u!33 &33459396164819714
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1420520983649940}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114154476537537910
+  m_GameObject: {fileID: 1208576670297198}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114134261882499652
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1420520983649940}
+  m_GameObject: {fileID: 1445327560831014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae54baf70fed43742b70b7953ed3ed48, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f445d31fa56a134c8ce77f6589c7838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: {fileID: 1755245366482414, guid: d05a1b2453597c84c82c3e841e905d0a, type: 2}
-  Projectile: {fileID: 1770109685379988, guid: 81ee0095b19b0e5489b2b088041772e3, type: 2}
---- !u!136 &136358366186395768
-CapsuleCollider:
+  ProjectileSpeed: 30
+  LifeSpan: 10
+--- !u!135 &135115173899643918
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1420520983649940}
+  m_GameObject: {fileID: 1208576670297198}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Amunition : MonoBehaviour
+public class Ammunition : MonoBehaviour
 {
     public GameObject Damage;
+    public GameObject Projectile;
     
     public void Destroy()
     {
