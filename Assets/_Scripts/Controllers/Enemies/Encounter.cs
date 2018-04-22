@@ -9,14 +9,14 @@ public class Encounter : MonoBehaviour
     private List<GameObject> Enemies;
 
 
-    public void CreateEnemies(GameObject target)
+    public void CreateEnemies(GameObject target, Vector3 position)
     {
         Enemies = new List<GameObject>();
 
         for (int index = 0; index < enemyPrefabs.Count; index++)
         {
             GameObject enemy = Instantiate(enemyPrefabs[index],
-                enemyPrefabs[index].transform.position, Quaternion.identity);
+                position, Quaternion.identity);
             enemy.GetComponent<EnemyController>().LookTarget = target;
             Enemies.Add(enemy);
         }
