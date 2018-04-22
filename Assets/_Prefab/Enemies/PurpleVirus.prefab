@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114906452070731476}
   - component: {fileID: 114933979560713420}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: PurpleVirus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,6 +184,11 @@ MonoBehaviour:
   Ammunition: {fileID: 1824513762611658, guid: b51c5888d796b7a418d44e61b6bd73c2, type: 2}
   LookTarget: {fileID: 0}
   MoveTarget: {x: 0, y: 0, z: 0}
+  InTutorial: 0
+  IsPaused: 0
+  HP: 50
+  LabelPrefab: {fileID: 1639633001385178, guid: 30be6e9dd265ae64481bbc38d6a866ec,
+    type: 2}
 --- !u!114 &114906452070731476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,6 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FiringRate: 3
   MovementRate: 1
+  isPaused: 0
 --- !u!114 &114989126065273880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,6 +226,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageTypes:
-  - {fileID: 114773356351410616, guid: 826a7026a20ce5e4eb49a338a7cababd, type: 2}
-  - {fileID: 114991030229821456, guid: 99b276d6af3ee134d95e772393d57d12, type: 2}
+  - {fileID: 114483681978520138, guid: f7fa960146d8faf4cbc69860b3e2c0dc, type: 2}
   ResistanceFactor: 1.25

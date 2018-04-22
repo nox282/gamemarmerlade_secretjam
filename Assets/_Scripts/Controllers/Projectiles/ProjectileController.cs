@@ -6,7 +6,10 @@ public class ProjectileController : MonoBehaviour {
     public float ProjectileSpeed = 10.0f;
     public float LifeSpan = 10.0f;
 
+    public GameObject Damage;
+
     private Vector3 Direction = new Vector3(0.0f, 0.0f, 0.0f);
+
 
     void Start() {
         StartCoroutine(Live(LifeSpan));

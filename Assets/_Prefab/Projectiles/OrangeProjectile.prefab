@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectileSpeed: 30
   LifeSpan: 10
+  Damage: {fileID: 1819881052132912, guid: 716fa21f886ad2b488d62b05b4743dae, type: 2}
 --- !u!135 &135450685503631316
 SphereCollider:
   m_ObjectHideFlags: 1

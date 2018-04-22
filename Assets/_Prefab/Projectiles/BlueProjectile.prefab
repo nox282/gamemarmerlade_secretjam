@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4907243169671010}
   - component: {fileID: 114737374169503782}
+  - component: {fileID: 135128721339787502}
   m_Layer: 0
   m_Name: BlueProjectile
   m_TagString: Untagged
@@ -126,6 +127,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectileSpeed: 30
   LifeSpan: 10
+  Damage: {fileID: 1958720758011016, guid: 91c70f3c7ece05842ad8204989140700, type: 2}
+--- !u!135 &135128721339787502
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1685122697393194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135885539465916468
 SphereCollider:
   m_ObjectHideFlags: 1
