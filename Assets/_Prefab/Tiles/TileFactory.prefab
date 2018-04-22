@@ -52,7 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TilePrefabs:
-  - {fileID: 1725592690266228, guid: 761cf56e28f71704a87fc8c83f29125f, type: 2}
+  - {fileID: 1576213593821078, guid: 761cf56e28f71704a87fc8c83f29125f, type: 2}
+  - {fileID: 1255954139986914, guid: a5e2303db5c07c74c8b6d6616c0347bf, type: 2}
+  - {fileID: 1026730312817066, guid: c532620f51939154f936204f9b84eb80, type: 2}
+  - {fileID: 1728328680364660, guid: 5774636dd654e1f468fc60206ff40b73, type: 2}
   ListOfTiles: []
   NumberOfTile: 30
-  MaxDistance: 500
+  MaxDistance: 250

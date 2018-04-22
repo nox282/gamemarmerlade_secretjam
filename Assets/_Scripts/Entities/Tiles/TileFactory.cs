@@ -39,7 +39,7 @@ public class TileFactory : MonoBehaviour {
     }
 
     private GameObject PickTile() {
-        return Instantiate(TilePrefabs[Random.Range(0, TilePrefabs.Count - 1)],
+        return Instantiate(TilePrefabs[Random.Range(0, TilePrefabs.Count)],
                            transform.position,
                            Quaternion.identity);
     }
@@ -49,7 +49,7 @@ public class TileFactory : MonoBehaviour {
 
         if (ListOfTiles.Count > 0) {
             Joint lastTileJoint = ListOfTiles[ListOfTiles.Count - 1].GetComponent<Joint>();
-            tPosition = lastTileJoint.End.transform.position - t.GetComponent<Joint>().Begin.transform.localPosition;
+            tPosition = lastTileJoint.End.transform.position - t.GetComponent<Joint>().Start.transform.localPosition;
         }
 
         t.transform.position = tPosition;

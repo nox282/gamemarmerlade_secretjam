@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 2cfb192118dae9c43ad1d91913081a07
-timeCreated: 1524330959
+guid: 246dced0ffd866e479f8f7ca748abf5d
+timeCreated: 1524343175
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: 'Material #11'
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cylinder001
+    4300000: Platelet
     9500000: //RootNode
   externalObjects: {}
   materials:

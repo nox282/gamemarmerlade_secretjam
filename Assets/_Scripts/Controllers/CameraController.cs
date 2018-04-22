@@ -27,5 +27,7 @@ public class CameraController : MonoBehaviour {
             transform.position += (CP.position - transform.position).normalized * ScrollingSpeed * Time.deltaTime;
         else
             GetNextCP();
+
+        transform.LookAt(CP);
     }
 }
