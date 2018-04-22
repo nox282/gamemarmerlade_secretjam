@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649a7ee02b046b48800a9c0cd201d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CitizenPerFrame: 5
-  NumberOfCitizen: 100
+  CitizenPerFrame: 1
+  NumberOfCitizen: 50
   CitizenPrefabs:
   - {fileID: 1202919663131046, guid: e5e31ffbdb4e416458aa1303f91e3cd7, type: 2}
   - {fileID: 1054677675817054, guid: 44cff61b1cfea36479283647c269c572, type: 2}
