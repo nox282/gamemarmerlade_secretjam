@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour {
 
     private GameObject Path;
     private Transform CP;
-    private int pathIndex = 0;
+    public int pathIndex = 0;
 
 	// Use this for initialization
 	void Start () {

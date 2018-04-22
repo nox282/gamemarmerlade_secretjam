@@ -178,6 +178,53 @@ Transform:
   m_Father: {fileID: 1416361370}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &460058190
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4297214953880924, guid: 95dbbf416e688b5479f90f7575d57cbb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297214953880924, guid: 95dbbf416e688b5479f90f7575d57cbb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297214953880924, guid: 95dbbf416e688b5479f90f7575d57cbb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 11.300001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297214953880924, guid: 95dbbf416e688b5479f90f7575d57cbb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297214953880924, guid: 95dbbf416e688b5479f90f7575d57cbb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297214953880924, guid: 95dbbf416e688b5479f90f7575d57cbb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297214953880924, guid: 95dbbf416e688b5479f90f7575d57cbb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297214953880924, guid: 95dbbf416e688b5479f90f7575d57cbb, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114871747148425900, guid: 95dbbf416e688b5479f90f7575d57cbb,
+        type: 2}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 942338063}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 95dbbf416e688b5479f90f7575d57cbb, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &942338063
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +267,7 @@ MonoBehaviour:
   Ammunition: {fileID: 1824513762611658, guid: b51c5888d796b7a418d44e61b6bd73c2, type: 2}
   AmmunitionSpawnPosition: 1
   fireDelay: 0
+  Inventory: []
 --- !u!114 &942338066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetDistanceThreshold: 0.1
   ScrollingSpeed: 3
+  pathIndex: 0
 --- !u!54 &1416361373
 Rigidbody:
   m_ObjectHideFlags: 0
