@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Joint : MonoBehaviour {
-    public GameObject Begin;
+    public GameObject Start;
     public GameObject End;
 }
