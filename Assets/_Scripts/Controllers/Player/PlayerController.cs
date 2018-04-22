@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour {
     // Config
     public float speed = 10.0f;
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour {
 
     // Number of seconds between each projectile
     public float fireDelay;
+
+    // Inventory
+    public List<GameObject> Inventory;
     
 
     // Use this for initialization
@@ -36,6 +40,8 @@ public class PlayerController : MonoBehaviour {
         meleeController = meleeHitzone.GetComponent<MeleeController>();
 
         Movement = new Vector3(0, 0, 0);
+
+        Inventory = new List<GameObject>();
 	}
 	
 	// Update is called once per frame
@@ -80,5 +86,25 @@ public class PlayerController : MonoBehaviour {
                 ec.Hit(50.0f);
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        Amunition amunition = other.GetComponent<Amunition>();
+
+        if (amunition != null) {
+            PickUpAmunition(amunition.Damage);
+            amunition.Destroy();
+        }
+    }
+
+    private void PickUpAmunition(GameObject newDamage) {
+        string newDamageName = newDamage.GetComponent<Damage>().DamageName;
+
+        foreach(GameObject damage in Inventory) {
+            if (damage.GetComponent<Damage>().DamageName == newDamageName)
+                return;
+        }
+
+        Inventory.Add(newDamage);
     }
 }
