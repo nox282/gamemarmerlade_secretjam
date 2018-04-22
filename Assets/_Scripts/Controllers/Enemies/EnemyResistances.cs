@@ -5,29 +5,35 @@ using UnityEngine;
 public class EnemyResistances : MonoBehaviour {
 
     public Damage[] DamageTypes;
-    public float ResistanceFactor = 1.25f;
+    public float ResistanceFactor = 0.25f;
 
     private Dictionary<Damage, float> Resistances; 
 
+
 	void Start () {
         Resistances = new Dictionary<Damage, float>();
-        foreach (Damage d in DamageTypes) {
-            Resistances.Add(d, 1.0f);
-        }
+        foreach (Damage d in DamageTypes)
+            Resistances.Add(d, ResistanceFactor);
 	}
 
-    void OnCollisionEnter(Collision collision) {
-        Damage d = collision.gameObject.GetComponent<Damage>();
-        if (d != null && Resistances.ContainsKey(d))
-            Resist(d);
-    }
+    public float GetResistance (Damage damage) {
+        if (damage == null)
+            return 1;
 
-    private void Resist(Damage dType) {
-        foreach (KeyValuePair<Damage, float> r in Resistances) {
-            if (r.Key == dType)
-                Resistances[r.Key] *= ResistanceFactor;
-            else
-                Resistances[r.Key] *= 1 - ResistanceFactor;
+        if (!Resistances.ContainsKey(damage))
+            Resistances.Add(damage, 0.0f);
+
+        return Resistances[damage];
+    }
+    
+    public void Resist(Damage damage) {
+        if (damage != null && Resistances.ContainsKey(damage)) {
+            foreach (KeyValuePair<Damage, float> r in Resistances) {
+                if (r.Key.DamageName == damage.DamageName)
+                    Resistances[r.Key] = Mathf.Min(0.9f, Resistances[r.Key] + ResistanceFactor);
+                else
+                    Resistances[r.Key] = Mathf.Max(0.1f, Resistances[r.Key] - ResistanceFactor);
+            }
         }
     }
 }

@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
         Movement += transform.right * Input.GetAxis("Horizontal");
 
         if (Input.GetButtonDown("Fire1")) PrimaryFire();
-        if (Input.GetButtonDown("Fire2")) SecondaryFire();
+        if (Input.GetButtonUp("Fire2")) SecondaryFire();
     }
 
     void ApplyMovement() {
@@ -81,9 +81,10 @@ public class PlayerController : MonoBehaviour {
 
     void SecondaryFire() {
         foreach(GameObject go in meleeController.Contacts) {
-            EnemyController ec = go.GetComponent<EnemyController>();
-            if(ec != null) {
-                ec.Hit(50.0f);
+            if (go != null) {
+                EnemyController ec = go.GetComponent<EnemyController>();
+                if (ec != null)
+                    ec.Hit(10.0f);
             }
         }
     }
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void PickUpAmmunition(Ammunition ammunition) {
-        string newDamageName = ammunition.Damage.GetComponent<Damage>().DamageName;
+        string newDamageName = ammunition.GetDamage().DamageName;
 
         Ammunition = ammunition.Projectile;
         
@@ -107,6 +108,6 @@ public class PlayerController : MonoBehaviour {
                 return;
         }
 
-        Inventory.Add(ammunition.Damage);
+        Inventory.Add(ammunition.GetDamageObject());
     }
 }

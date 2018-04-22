@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114598054357241896}
   - component: {fileID: 114104326478577000}
   m_Layer: 0
-  m_Name: Enemy3
+  m_Name: OrangeVirus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,8 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageTypes:
-  - {fileID: 114773356351410616, guid: 826a7026a20ce5e4eb49a338a7cababd, type: 2}
-  - {fileID: 114991030229821456, guid: 99b276d6af3ee134d95e772393d57d12, type: 2}
+  - {fileID: 114917044213972890, guid: 716fa21f886ad2b488d62b05b4743dae, type: 2}
   ResistanceFactor: 1.25
 --- !u!114 &114521021836004750
 MonoBehaviour:
@@ -229,3 +228,6 @@ MonoBehaviour:
   MoveTarget: {x: 0, y: 0, z: 0}
   InTutorial: 0
   IsPaused: 0
+  HP: 50
+  LabelPrefab: {fileID: 1639633001385178, guid: 30be6e9dd265ae64481bbc38d6a866ec,
+    type: 2}
