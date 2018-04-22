@@ -184,6 +184,8 @@ MonoBehaviour:
   Ammunition: {fileID: 1824513762611658, guid: b51c5888d796b7a418d44e61b6bd73c2, type: 2}
   LookTarget: {fileID: 0}
   MoveTarget: {x: 0, y: 0, z: 0}
+  InTutorial: 0
+  IsPaused: 0
 --- !u!114 &114906452070731476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FiringRate: 3
   MovementRate: 1
+  isPaused: 0
 --- !u!114 &114989126065273880
 MonoBehaviour:
   m_ObjectHideFlags: 1

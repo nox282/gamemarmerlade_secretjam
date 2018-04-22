@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
     // Config
     public float speed = 10.0f;
     public float ZAimFactor = 1.25f;
+    private bool IsShooting = false;
+    public float CameraSpringArm = 5.0f;
 
     // MeleeHitzone
     public string MeleeHitzoneTag = "MeleeHitzone";
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 
     // Components
     private Vector3 Movement;
+    private Animator Anim;
+    private Vector3 Pos;
 
     // Environmental
     public bool inTutorial = false;
@@ -27,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 
     // Number of seconds between each projectile
     public float fireDelay;
+    private float fireCount;
 
     // Inventory
     public List<GameObject> Inventory;
@@ -38,6 +43,7 @@ public class PlayerController : MonoBehaviour {
         meleeHitzone.transform.localPosition = MeleeHitzoneOffset;
         meleeHitzone.transform.localScale = new Vector3(MeleeHitzoneScale, MeleeHitzoneScale);
         meleeController = meleeHitzone.GetComponent<MeleeController>();
+        Anim = GetComponentInChildren<Animator>();
 
         Movement = new Vector3(0, 0, 0);
 
@@ -50,6 +56,19 @@ public class PlayerController : MonoBehaviour {
             CheckForInputs();
             ApplyMovement();
             Movement = new Vector3(0.0f, 0.0f, 0.0f);
+            CheckForShooting();
+        }
+    }
+
+    void CheckForShooting() {
+        if (fireCount > 0.0f) {
+            fireCount += Time.deltaTime;
+            if (fireCount > fireDelay)
+                fireCount = 0.0f;
+        }
+        if (IsShooting && fireCount == 0.0f) {
+            fireCount += Time.deltaTime;
+            PrimaryFire();
         }
     }
 
@@ -57,17 +76,32 @@ public class PlayerController : MonoBehaviour {
         Movement += transform.up * Input.GetAxis("Vertical");
         Movement += transform.right * Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown("Fire1")) PrimaryFire();
-        if (Input.GetButtonDown("Fire2")) SecondaryFire();
+        if (Input.GetButtonDown("Fire1")) {
+            Anim.SetBool("isShooting", true);
+            IsShooting = true;
+        }
+
+        if (Input.GetButtonUp("Fire1")) {
+            Anim.SetBool("isShooting", false);
+            IsShooting = false;
+        }
+            
+
+        if (Input.GetButtonDown("Fire2")) {
+            Anim.SetTrigger("Melee");
+            SecondaryFire();
+        }
     }
 
     void ApplyMovement() {
         transform.position += Movement.normalized * speed * Time.deltaTime;
+        Vector3 localPos = transform.localPosition;
+        localPos.z = CameraSpringArm;
+        transform.localPosition = localPos;
     }
 
     void PrimaryFire() {
         if (Ammunition == null) return;
-
         GameObject projectile = Instantiate(Ammunition,
                                             transform.position + transform.forward * AmmunitionSpawnPosition,
                                             Quaternion.identity);

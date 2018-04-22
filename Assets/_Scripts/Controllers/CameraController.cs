@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     public float TargetDistanceThreshold = 0.1f;
     public float ScrollingSpeed = 10.0f;
+    public float RotationSpeed = 1.0f;
 
     private GameObject Path;
     private Transform CP;
@@ -15,19 +16,21 @@ public class CameraController : MonoBehaviour {
         Path = GameObject.FindGameObjectWithTag("Path");
         GetNextCP();
         transform.position = CP.transform.position;
-	}
+    }
 	
     void GetNextCP() {
         CP = Path.transform.GetChild(pathIndex++);
     }
 
-	// Update is called once per frame
 	void Update () {
+        if (CP == null)
+            GetNextCP();
         if (Vector3.Distance(transform.position, CP.position) > TargetDistanceThreshold)
             transform.position += (CP.position - transform.position).normalized * ScrollingSpeed * Time.deltaTime;
         else
             GetNextCP();
 
-        transform.LookAt(CP);
+        Quaternion toRotation = Quaternion.FromToRotation(transform.forward, (CP.transform.position - transform.position).normalized);
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, RotationSpeed * Time.deltaTime);
     }
 }

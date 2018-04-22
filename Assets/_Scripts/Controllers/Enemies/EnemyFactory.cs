@@ -73,7 +73,7 @@ public class EnemyFactory : MonoBehaviour
 
         Encounter = Instantiate(EncounterPrefabs[index], transform.position, Quaternion.identity);
         Encounter.GetComponent<Encounter>().pathIndex = SpawnCPIndex +
-            Camera.main.GetComponent<CameraController>().pathIndex;
+            GameObject.FindObjectOfType<CameraController>().pathIndex;
         Encounter.GetComponent<Encounter>().CreateEnemies(Target, transform.position);
 
     }    

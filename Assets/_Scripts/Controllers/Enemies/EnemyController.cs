@@ -67,6 +67,4 @@ public class EnemyController : MonoBehaviour {
     public void Hit(float damage) {
         Debug.Log(gameObject.name + " hit for " + damage);
     }
-
-    // TODO: on die, notify factory
 }
