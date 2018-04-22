@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour {
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
+
+        DontDestroyOnLoad(this);
     }
 
     public void LoadNextStage() {

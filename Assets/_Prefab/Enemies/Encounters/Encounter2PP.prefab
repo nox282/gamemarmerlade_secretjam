@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetDistanceThreshold: 0.1
-  ScrollingSpeed: 2
+  ScrollingSpeed: 1.5
   enemyPrefabs:
-  - {fileID: 1101588464971500, guid: fd083f33e4011424096e7589e2802393, type: 2}
-  - {fileID: 1923713327620550, guid: 660927930224ed94080c130fd4c08ea6, type: 2}
+  - {fileID: 1320714266816600, guid: fd083f33e4011424096e7589e2802393, type: 2}
+  - {fileID: 1906319551379264, guid: 660927930224ed94080c130fd4c08ea6, type: 2}
   pathIndex: 0

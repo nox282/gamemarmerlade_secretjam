@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetDistanceThreshold: 0.1
-  ScrollingSpeed: 2
+  ScrollingSpeed: 1.5
   enemyPrefabs:
-  - {fileID: 1410660067921212, guid: 1586b15e3feffe9489b9bcb2a7576837, type: 2}
+  - {fileID: 1897390785774214, guid: 186e857dcb3b3014c9c17550c4f7e401, type: 2}
   pathIndex: 0
