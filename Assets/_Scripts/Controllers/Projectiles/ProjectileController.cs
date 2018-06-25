@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour {
+    public GameObject origin;
     public float ProjectileSpeed = 10.0f;
     public float LifeSpan = 10.0f;
 
@@ -24,16 +25,23 @@ public class ProjectileController : MonoBehaviour {
         ApplyMovement();
     }
 
-    public void Initialize(GameObject target) {
+    public void Initialize(GameObject originObj, GameObject target) {
         Direction = (target.transform.position - transform.position).normalized;
+        InitializeOrigin(originObj);
     }
 
-    public void Initialize(Vector3 target) {
+    public void Initialize(GameObject originObj, Vector3 target) {
         Direction = (target - transform.position).normalized;
+        InitializeOrigin(originObj);
     }
 
-    public void InitializeWithDirection(Vector3 target) {
+    public void InitializeWithDirection(GameObject originObj, Vector3 target) {
         Direction = target;
+        InitializeOrigin(originObj);
+    }
+
+    public void InitializeOrigin(GameObject obj) {
+        origin = obj;
     }
 
     private void ApplyMovement() { 

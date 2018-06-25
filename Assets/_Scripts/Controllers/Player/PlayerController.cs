@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour {
         ProjectileController pc = projectile.GetComponent<ProjectileController>();
         if (pc != null) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            pc.InitializeWithDirection(ray.direction);
+            pc.InitializeWithDirection(gameObject, ray.direction);
         }
     }
 
@@ -153,16 +153,17 @@ public class PlayerController : MonoBehaviour {
 
             if (projectile != null)
             {
-                Destroy(other);
+                if(projectile.origin != gameObject) {
+                    Destroy(other);
 
-                HP -= 5;
-                if (HP <= 0)
-                    GameObject.FindObjectOfType<LevelManager>().GameOver(score);
-                else
-                    HealthText.text = "" + HP;
+                    HP -= 5;
+                    if (HP <= 0)
+                        GameObject.FindObjectOfType<LevelManager>().GameOver(score);
+                    else
+                        HealthText.text = "" + HP;
+                }
             }
         }
-
     }
 
     private void PickUpAmmunition(Ammunition ammunition) {

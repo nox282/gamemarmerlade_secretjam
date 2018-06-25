@@ -78,13 +78,13 @@ public class EnemyController : MonoBehaviour {
     public void Shoot() {
         ProjectileController pc = CreateBullet();
         if (pc != null)
-            pc.Initialize(LookTarget);
+            pc.Initialize(gameObject, LookTarget);
     }
 
     public void Shoot(Vector3 target) {
         ProjectileController pc = CreateBullet();
         if (pc != null)
-            pc.InitializeWithDirection(target);
+            pc.InitializeWithDirection(gameObject, target);
     }
 
     private ProjectileController CreateBullet() {
@@ -136,17 +136,18 @@ public class EnemyController : MonoBehaviour {
         
         if (projectile != null)
         {
-            Damage damage = projectile.Damage.GetComponent<Damage>();
-            EnemyResistances resistances = GetComponent<EnemyResistances>();
+            if (projectile.origin != gameObject) {
+                Damage damage = projectile.Damage.GetComponent<Damage>();
+                EnemyResistances resistances = GetComponent<EnemyResistances>();
 
-            if (damage != null)
-            {
-                float damagePoints = damage.DamagePoints;
+                if (damage != null) {
+                    float damagePoints = damage.DamagePoints;
 
-                damagePoints = damagePoints - (damagePoints * resistances.GetResistance(damage));
-                
-                if (TakeDamage(damagePoints))
-                    resistances.Resist(damage);
+                    damagePoints = damagePoints - (damagePoints * resistances.GetResistance(damage));
+
+                    if (TakeDamage(damagePoints))
+                        resistances.Resist(damage);
+                }
             }
         }
     }
