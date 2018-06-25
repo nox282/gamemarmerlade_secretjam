@@ -171,9 +171,10 @@ MonoBehaviour:
   TargetDistanceThreshold: 0.1
   AmmunitionSpawnPosition: 2
   IsAIActive: 1
-  Ammunition: {fileID: 1610526879699216, guid: b51c5888d796b7a418d44e61b6bd73c2, type: 2}
+  Ammunition: {fileID: 1624145377148140, guid: b18a4e3f31dfa344b8cf56fa4bed3cbe, type: 2}
   LookTarget: {fileID: 0}
   MoveTarget: {x: 0, y: 0, z: 0}
+  MaxDistanceWithTarget: 10
   InTutorial: 0
   IsPaused: 0
   HP: 50

@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour {
 
     public GameObject LookTarget = null;
     public Vector3 MoveTarget = new Vector3(0.0f, 0.0f, 0.0f);
+    public float MaxDistanceWithTarget = 10.0f;
 
     // Environmental
     public bool InTutorial = false;
@@ -47,15 +48,14 @@ public class EnemyController : MonoBehaviour {
     void Update () {
         if (IsAIActive && !IsPaused) {
 
-            if (LookTarget.transform.position.z > transform.position.z)
-            {
-                Die(false);
-                return;
-            }
-            else
-            {
-                ApplyMovement();
-                transform.LookAt(LookTarget.transform);
+            if (LookTarget.transform.position.z > transform.position.z) {
+                if (Vector3.Distance(LookTarget.transform.position, transform.position) > MaxDistanceWithTarget) {
+                    Die(false);
+                    return;
+                } else {
+                    ApplyMovement();
+                    transform.LookAt(LookTarget.transform);
+                }
             }
         }
 
